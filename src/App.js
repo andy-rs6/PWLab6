@@ -23,7 +23,7 @@ const App = () => {
       "Type": "movie",
       "Poster": "https://m.media-amazon.com/images/M/MV5BYmU1NDRjNDgtMzhiMi00NjZmLTg5NGItZDNiZjU5NTU4OTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg"
   },
-  );
+  );  
 
 };
 

@@ -1,9 +1,7 @@
-
 body {
-	background: #141414;
-	color: #ffffff;
+	background: var(--body_background);
+	color: var(--body_color);
 }
-
 .movie-app > .row {
 	overflow-x: auto;
 	flex-wrap: nowrap;

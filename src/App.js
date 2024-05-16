@@ -6,6 +6,7 @@ import MovieListHeading from './components/MovieListHeading';
 import SearchBox from './components/SearchBox';
 import AddFavourites from './components/AddFavourites';
 import RemoveFavourites from './components/RemoveFavourites';
+import DarkMode from './components/DarkMode/DarkMode';
 
 const App = () => {
   const [movies, setMovies] = useState([]);
@@ -54,21 +55,23 @@ const App = () => {
 
   return (
     <div className='container-fluid movie-app'>
-			<div className='row d-flex align-items-center mt-4 mb-4'>
+			<div className='d-flex flex-row mt-4 mb-4'>
 				<MovieListHeading heading='Movies' />
 				<SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
+        <DarkMode/>
+
 			</div>
-			<div className='row'>
+			<div className='d-flex flex-wrap justify-content-start'>
 				<MovieList
 					movies={movies}
 					handleFavouritesClick={addFavouriteMovie}
 					favouriteComponent={AddFavourites}
 				/>
 			</div>
-      <div className='row d-flex align-items-center mt-4 mb-4'>
+      <div className='d-flex flex-wrap mt-4 mb-4'>
 				<MovieListHeading heading='Favourites' />
 			</div>
-      <div className='row'>
+      <div className='d-flex flex-wrap justify-content-start'>
 				<MovieList
 					movies={favourites}
 					handleFavouritesClick={removeFavouriteMovie}

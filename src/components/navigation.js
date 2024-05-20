@@ -13,13 +13,13 @@ export function Navigation() {
     <div>
       <Navbar bg="dark" variant="dark" >
         <Container>
-          <Navbar.Brand href="/home">Nikiflix</Navbar.Brand>
+          <Navbar.Brand href="/PWLab6/home">Nikiflix</Navbar.Brand>
           <Nav className="me-auto">
-            {isAuth ? <Nav.Link href="/home">Home</Nav.Link> : null}
+            {isAuth ? <Nav.Link href="/PWLab6/home">Home</Nav.Link> : null}
           </Nav>
           <Nav>
-            {isAuth ? <Nav.Link href="/logout">Logout</Nav.Link> :
-              <Nav.Link href="/login">Login</Nav.Link>}
+            {isAuth ? <Nav.Link href="/PWLab6/logout">Logout</Nav.Link> :
+              <Nav.Link href="/PWLab6/login">Login</Nav.Link>}
           </Nav>
         </Container>
       </Navbar>

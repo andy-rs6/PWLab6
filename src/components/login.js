@@ -29,7 +29,7 @@ export const Login = () => {
             const refreshToken = data["refresh"];
             localStorage.setItem("access_token", accessToken);
             localStorage.setItem("refresh_token", refreshToken);
-            navigate("/home")
+            navigate("/PWLab6/home")
           } catch (error) {
             alert(error.message);
           }

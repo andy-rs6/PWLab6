@@ -57,7 +57,7 @@ function ProtectedRoute({ children }) {
     return <div>Loading...</div>;
   }
 
-  return isAuthorized ? children : navigate("/login");
+  return isAuthorized ? children : navigate("/PWLab6/login");
 }
 
 export default ProtectedRoute;

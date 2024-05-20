@@ -17,7 +17,7 @@ export const Home = () => {
             (async () => {
                 try {
                     const { data } = await axios.get(
-                        'http://localhost:8000/home/', {
+                        'http://localhost:8000/PWLab6/home/', {
                         headers: {
                             'Content-Type': 'application/json',
                             'Authorization': `Bearer ${localStorage.getItem('access_token')}`

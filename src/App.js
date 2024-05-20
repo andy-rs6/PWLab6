@@ -72,7 +72,7 @@ const App = () => {
           <Navigation></Navigation>
           <Routes>
             <Route
-              path="/home"
+              path="/PWLab6/home"
               element={
                 <ProtectedRoute>
                   <Home />
@@ -87,8 +87,8 @@ const App = () => {
                 </ProtectedRoute>
               }
             ></Route>
-            <Route path="/login" element={<Login />} />
-            <Route path="/logout" element={<Logout />} />
+            <Route path="/PWLab6/login" element={<Login />} />
+            <Route path="/PWLab6/logout" element={<Logout />} />
           </Routes>
         </BrowserRouter>
         <DarkMode />

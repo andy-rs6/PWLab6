@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/PWLab6/static/css/main.2661bae6.css",
+    "main.js": "/PWLab6/static/js/main.0203f8ea.js",
+    "static/js/453.69f3745b.chunk.js": "/PWLab6/static/js/453.69f3745b.chunk.js",
+    "static/media/Sun.svg": "/PWLab6/static/media/Sun.681607dcda2a01539a9a8a157ae74e6e.svg",
+    "static/media/Moon.svg": "/PWLab6/static/media/Moon.0a6a2b75ac51157455302ddcfca385c0.svg",
+    "index.html": "/PWLab6/index.html",
+    "main.2661bae6.css.map": "/PWLab6/static/css/main.2661bae6.css.map",
+    "main.0203f8ea.js.map": "/PWLab6/static/js/main.0203f8ea.js.map",
+    "453.69f3745b.chunk.js.map": "/PWLab6/static/js/453.69f3745b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2661bae6.css",
+    "static/js/main.0203f8ea.js"
+  ]
+}

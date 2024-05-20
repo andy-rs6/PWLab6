@@ -7,11 +7,17 @@ import SearchBox from './components/SearchBox';
 import AddFavourites from './components/AddFavourites';
 import RemoveFavourites from './components/RemoveFavourites';
 import DarkMode from './components/DarkMode/DarkMode';
+import { Navigation } from './components/navigation';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Login } from './components/login';
+import { Home } from './components/home';
+import { Logout } from './components/logout';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const App = () => {
   const [movies, setMovies] = useState([]);
-	const [favourites, setFavourites] = useState([]);
-	const [searchValue, setSearchValue] = useState('');
+  const [favourites, setFavourites] = useState([]);
+  const [searchValue, setSearchValue] = useState('');
 
   const getMovieRequest = async (searchValue) => {
     const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=263d22d8`;
@@ -29,9 +35,13 @@ const App = () => {
   }, [searchValue]);
 
   useEffect(() => {
-    const movieFavourites = JSON.parse(localStorage.getItem('react-movie-app-favourites'));
+    const movieFavourites = JSON.parse(
+      localStorage.getItem('react-movie-app-favourites')
+    );
 
-    setFavourites(movieFavourites);
+    if (movieFavourites) {
+      setFavourites(movieFavourites);
+    }
   }, []);
 
   const saveToLocalStorage = (items) => {
@@ -44,40 +54,59 @@ const App = () => {
     saveToLocalStorage(newFavouriteList);
   };
 
-	const removeFavouriteMovie = (movie) => {
-		const newFavouriteList = favourites.filter(
-			(favourite) => favourite.imdbID !== movie.imdbID
-		);
+  const removeFavouriteMovie = (movie) => {
+    const newFavouriteList = favourites.filter(
+      (favourite) => favourite.imdbID !== movie.imdbID
+    );
 
-		setFavourites(newFavouriteList);
+    setFavourites(newFavouriteList);
     saveToLocalStorage(newFavouriteList);
-	};
+  };
+
 
   return (
-    <div className='container-fluid movie-app'>
-			<div className='d-flex flex-row mt-4 mb-4'>
-				<MovieListHeading heading='Movies' />
-				<SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
-        <DarkMode/>
 
-			</div>
-			<div className='d-flex flex-wrap justify-content-start'>
-				<MovieList
-					movies={movies}
-					handleFavouritesClick={addFavouriteMovie}
-					favouriteComponent={AddFavourites}
-				/>
-			</div>
-      <div className='d-flex flex-wrap mt-4 mb-4'>
-				<MovieListHeading heading='Favourites' />
-			</div>
+    <div className='container-fluid movie-app'>
+      <div className='d-flex flex-row mt-4 mb-4'>
+        <BrowserRouter>
+          <Navigation></Navigation>
+          <Routes>
+            <Route
+              path="/home"
+              element={
+                <ProtectedRoute>
+                  <Home />
+                  <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
+
+                </ProtectedRoute>
+              }
+            ></Route>
+            <Route path="/login" element={<Login />} />
+            <Route path="/logout" element={<Logout />} />
+          </Routes>
+        </BrowserRouter>
+
+        <MovieListHeading heading='Movies' />
+        <DarkMode />
+
+      </div>
       <div className='d-flex flex-wrap justify-content-start'>
-				<MovieList
-					movies={favourites}
-					handleFavouritesClick={removeFavouriteMovie}
-					favouriteComponent={RemoveFavourites}
-				/>
-			</div>
+        <MovieList
+          movies={movies}
+          handleFavouritesClick={addFavouriteMovie}
+          favouriteComponent={AddFavourites}
+        />
+      </div>
+      <div className='d-flex flex-wrap mt-4 mb-4'>
+        <MovieListHeading heading='Favourites' />
+      </div>
+      <div className='d-flex flex-wrap justify-content-start'>
+        <MovieList
+          movies={favourites}
+          handleFavouritesClick={removeFavouriteMovie}
+          favouriteComponent={RemoveFavourites}
+        />
+      </div>
     </div>
   );
 };

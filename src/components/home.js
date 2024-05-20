@@ -37,7 +37,7 @@ export const Home = () => {
     // Render the component
     return (
         <div className="form-signin mt-5 text-center">
-            <h3>Hi {message}</h3>
+            <h3> </h3>
         </div>
     );
 };

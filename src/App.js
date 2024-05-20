@@ -77,7 +77,13 @@ const App = () => {
                 <ProtectedRoute>
                   <Home />
                   <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
-
+                </ProtectedRoute>
+              }
+            ></Route>
+            <Route
+              path="/"
+              element={
+                <ProtectedRoute>
                 </ProtectedRoute>
               }
             ></Route>
@@ -85,8 +91,6 @@ const App = () => {
             <Route path="/logout" element={<Logout />} />
           </Routes>
         </BrowserRouter>
-
-        <MovieListHeading heading='Movies' />
         <DarkMode />
 
       </div>
